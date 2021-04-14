@@ -23,3 +23,32 @@
 .App-link {
   color: #61dafb;
 }
+
+.Field {
+  display: grid;
+  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(2, 100px);
+  justify-items: center;
+  border: 5px solid #a8b1bb;
+  color: '#ffffff';
+  background-color: 'blue';
+  gap: 10px;
+}
+
+.Blue {
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+}
+
+.Red {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+}
+
+.Green {
+  height: 100px;
+  width: 100px;
+  background-color: green;
+}

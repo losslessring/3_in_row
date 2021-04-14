@@ -3,7 +3,6 @@ export default class Field {
 		this.rows = rows
         this.cols = cols
         this.colors = colors
-        
 
         this.cells = [...new Array(cols)].map((column, columnIndex) =>{ return [...new Array(10)].map((row, rowIndex) => {return {x: rowIndex, y: columnIndex, color: colors[Math.floor(Math.random() * colors.length)]}})})
         console.log(this.cells)
