@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import {getRandomItem} from '../utils/utils'
 
 
-export default function Cell() {
+export default function Cell(props) {
 
-  const colors = ["Red", "Green", "Blue"]
+  
+  const [color, setColor] = useState(() => {return getRandomItem(props.colors)})
 
-  const [color, setColor] = useState(() => {return getRandomItem(colors)})
 
   return (
-    <div className={color} onClick={() => setColor(prevColor => "Green")}>
+    <div className={color} onClick={() => setColor(prevColor => {
+      return "Green"})}>
     </div>
   )
 }
