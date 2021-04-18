@@ -12,7 +12,9 @@ export default class Field extends Component {
     this.changeColor = this.changeColor.bind(this)
 
     this.state = {
-      //colors: ["Red", "Green", "Blue"],
+      clicksCounter: 0,
+      swapFirst: null,
+      swapSecond: null,
       cells: this.generateField(this.props.x, this.props.y, this.props.colors),
       style: {
         display: 'grid',
@@ -27,19 +29,61 @@ export default class Field extends Component {
     }
     console.log(this.state.cells)
   }
+  
+  // incrementClicksCounter(index) {
+  //   this.setState({clicksCounter: this.state.clicksCounter + 1}, this.resetClicksCounter)
+    
+  // }
 
-  changeColor() {
-    console.log(this.state.cells)
+  resetClicksCounter() {
+    //console.log(this.state.clicksCounter)
+    if (this.state.clicksCounter > 1) {
+      this.setState({clicksCounter: 0})
+     }  
+  }
+
+  swapColors(){
+    let tempArray = [...this.state.cells]
+    let firstObj = {...tempArray[this.state.swapFirst.index], color: this.state.swapSecond.color }
+    let secondObj = {...tempArray[this.state.swapSecond.index], color: this.state.swapFirst.color }
+    // console.log(firstObj)
+    // console.log(secondObj)
+    tempArray[this.state.swapFirst.index] = firstObj
+    tempArray[this.state.swapSecond.index] = secondObj
+    this.setState({cells : tempArray})
+  }
+
+
+  changeColor(index) {
+    
+    this.setState({clicksCounter: this.state.clicksCounter + 1}, () => {
+      this.resetClicksCounter()
+      if (this.state.clicksCounter === 1){
+        this.setState({swapFirst: this.state.cells[index]})
+      }
+      if (this.state.clicksCounter === 2){
+        this.setState({swapSecond: this.state.cells[index]}, this.swapColors)
+        
+        //После свопа можно обнулить состояние swapFirst и swapSecond, можно не обнулять
+      }
+  
+    })
+    
+
+
   }
 
   generateField(rows, cols, colors) {
     let field = []
-    for (let i = 0; i < rows; i++) {
+    for (let i = 0, counter = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
-        field.push({ x: i,
-                     y: j,
-                     color: this.getRandomItem(colors) 
+        
+        field.push({ x: j,
+                     y: i,
+                     color: this.getRandomItem(colors),
+                     index: counter  
                     })
+        counter++
       }
     }
     return field
@@ -51,9 +95,9 @@ export default class Field extends Component {
 
   render() {
     return (
-      <div  style={this.state.style}>
-        {this.state.cells.map((component, index) => (
-          <Cell key={index} colors={this.props.colors} changeColor={this.changeColor} />
+      <div style={this.state.style}>
+        {this.state.cells.map((component) => (
+          <Cell key={component.index} index={component.index} color={component.color} changeColor={this.changeColor} />
         ))}
       </div>
     )
