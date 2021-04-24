@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 import Cell from './Cell'
 
-import {getRandomItem} from '../utils/utils'
-
+//import {getRandomItem} from '../utils/utils'
+import {countColorRepeats} from '../engine/calculate_phase/calculate_phase'
 
 export default class Field extends Component {
   constructor(props) {
@@ -50,7 +50,11 @@ export default class Field extends Component {
     // console.log(secondObj)
     tempArray[this.state.swapFirst.index] = firstObj
     tempArray[this.state.swapSecond.index] = secondObj
-    this.setState({cells : tempArray})
+        
+        
+    this.setState({cells : tempArray}, () => {
+      countColorRepeats(this.state.cells)
+    })
   }
 
 
@@ -63,8 +67,6 @@ export default class Field extends Component {
       }
       if (this.state.clicksCounter === 2){
         this.setState({swapSecond: this.state.cells[index]}, this.swapColors)
-        
-        //После свопа можно обнулить состояние swapFirst и swapSecond, можно не обнулять
       }
   
     })
