@@ -3,7 +3,10 @@ import React, { Component } from 'react'
 import Cell from './Cell'
 
 //import {getRandomItem} from '../utils/utils'
-import {countColorRepeats} from '../engine/calculate_phase/calculate_phase'
+import {groupRepeats} from '../engine/calculate_phase/calculate_phase'
+import {pipe, forEach} from '../utils/func'
+
+//import * as R from 'ramda'
 
 export default class Field extends Component {
   constructor(props) {
@@ -53,7 +56,13 @@ export default class Field extends Component {
         
         
     this.setState({cells : tempArray}, () => {
-      countColorRepeats(this.state.cells)
+      pipe(
+      groupRepeats( (a, b) =>  a === b ? true : false)("y"),
+      forEach(line => {
+        console.log(groupRepeats( (a, b) =>  a === b ? true : false)("color")(line))  
+      })
+      )(this.state.cells)
+
     })
   }
 

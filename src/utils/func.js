@@ -16,3 +16,10 @@ export const resolvePath = (object, path, defaultValue) => path
   .split(/[\.\[\]\'\"]/)
   .filter(p => p)
   .reduce((o, p) => o ? o[p] : defaultValue, object)
+
+export const forEach = callback => array => {
+  return array.forEach(element => {
+      callback(element)
+    })
+  
+}
