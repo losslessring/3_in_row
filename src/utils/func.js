@@ -23,3 +23,7 @@ export const forEach = callback => array => {
     })
   
 }
+
+export const map = callback => array => {
+  return array.map(callback)
+}

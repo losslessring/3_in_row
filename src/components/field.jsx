@@ -3,8 +3,9 @@ import React, { Component } from 'react'
 import Cell from './Cell'
 
 //import {getRandomItem} from '../utils/utils'
-import {groupRepeats} from '../engine/calculate_phase/calculate_phase'
-import {pipe, forEach} from '../utils/func'
+import {groupRepeats} from '../engine/calculate_phase/1_group_phase'
+import {removeRow} from '../engine/calculate_phase/2_remove_phase'
+import {pipe, forEach, map} from '../utils/func'
 
 //import * as R from 'ramda'
 
@@ -56,13 +57,16 @@ export default class Field extends Component {
         
         
     this.setState({cells : tempArray}, () => {
-      pipe(
+      const newState = pipe(
       groupRepeats( (a, b) =>  a === b ? true : false)("y"),
-      forEach(line => {
-        console.log(groupRepeats( (a, b) =>  a === b ? true : false)("color")(line))  
+      map(line => {
+        //console.log(groupRepeats( (a, b) =>  a === b ? true : false)("color")(line))
+        console.log(removeRow(groupRepeats( (a, b) =>  a === b ? true : false)("color")(line)))
+        return removeRow(groupRepeats( (a, b) =>  a === b ? true : false)("color")(line))  
       })
       )(this.state.cells)
-
+      console.log(newState.flat())
+      //this.setState({cells: newState.flat()})
     })
   }
 
