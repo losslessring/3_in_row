@@ -28,7 +28,7 @@ export default class Field extends Component {
         border: '5px solid #a8b1bb',
         color: '#ffffff',
         backgroundColor: 'lightGrey',
-        gap: '10px'
+        gap: '2px'
       }
     }
     console.log(this.state.cells)
