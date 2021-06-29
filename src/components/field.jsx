@@ -25,7 +25,7 @@ export default class Field extends Component {
         gridTemplateRows: `repeat(${this.props.x}, 100px)`,
         gridTemplateColumns: `repeat(${this.props.y}, 100px)`,
         justifyItems: 'center',
-        border: '5px solid #a8b1bb',
+        border: '5px solid lightGrey',
         color: '#ffffff',
         backgroundColor: 'lightGrey',
         gap: '2px'

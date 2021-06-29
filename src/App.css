@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
 }
 
 .App-logo {
@@ -56,5 +61,5 @@
 .Empty {
   height: 100px;
   width: 100px;
-  background-color: grey;
+  background-color: lightgrey;
 }
