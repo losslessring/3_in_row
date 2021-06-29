@@ -5,7 +5,7 @@ import Cell from './Cell'
 //import {getRandomItem} from '../utils/utils'
 import {groupRepeats} from '../engine/calculate_phase/1_group_phase'
 import {removeRow} from '../engine/calculate_phase/2_remove_phase'
-import {pipe, forEach, map} from '../utils/func'
+import {pipe, forEach, map, flat, sort} from '../utils/func'
 
 //import * as R from 'ramda'
 
@@ -61,12 +61,14 @@ export default class Field extends Component {
       groupRepeats( (a, b) =>  a === b ? true : false)("y"),
       map(line => {
         //console.log(groupRepeats( (a, b) =>  a === b ? true : false)("color")(line))
-        console.log(removeRow(groupRepeats( (a, b) =>  a === b ? true : false)("color")(line)))
+        //console.log(removeRow(groupRepeats( (a, b) =>  a === b ? true : false)("color")(line)))
         return removeRow(groupRepeats( (a, b) =>  a === b ? true : false)("color")(line))  
-      })
+      }),
+      flat,
+      sort((a, b) => a.index - b.index )
       )(this.state.cells)
-      console.log(newState.flat())
-      //this.setState({cells: newState.flat()})
+      //console.log(newState.flat().sort((a, b) => a.index - b.index ))
+      this.setState({cells: newState})
     })
   }
 

@@ -27,3 +27,11 @@ export const forEach = callback => array => {
 export const map = callback => array => {
   return array.map(callback)
 }
+
+export const flat = array => {
+  return array.flat()
+}
+
+export const sort = callback => array => {
+  return array.sort(callback)
+}
