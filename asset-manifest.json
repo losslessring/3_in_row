@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/losslessring.github.io/3_in_row/static/css/main.46a56901.chunk.css",
-    "main.js": "/losslessring.github.io/3_in_row/static/js/main.529b1936.chunk.js",
-    "main.js.map": "/losslessring.github.io/3_in_row/static/js/main.529b1936.chunk.js.map",
-    "runtime-main.js": "/losslessring.github.io/3_in_row/static/js/runtime-main.651342a5.js",
-    "runtime-main.js.map": "/losslessring.github.io/3_in_row/static/js/runtime-main.651342a5.js.map",
-    "static/js/2.fa3adf8a.chunk.js": "/losslessring.github.io/3_in_row/static/js/2.fa3adf8a.chunk.js",
-    "static/js/2.fa3adf8a.chunk.js.map": "/losslessring.github.io/3_in_row/static/js/2.fa3adf8a.chunk.js.map",
-    "index.html": "/losslessring.github.io/3_in_row/index.html",
-    "static/css/main.46a56901.chunk.css.map": "/losslessring.github.io/3_in_row/static/css/main.46a56901.chunk.css.map",
-    "static/js/2.fa3adf8a.chunk.js.LICENSE.txt": "/losslessring.github.io/3_in_row/static/js/2.fa3adf8a.chunk.js.LICENSE.txt"
+    "main.css": "/3_in_row/static/css/main.46a56901.chunk.css",
+    "main.js": "/3_in_row/static/js/main.529b1936.chunk.js",
+    "main.js.map": "/3_in_row/static/js/main.529b1936.chunk.js.map",
+    "runtime-main.js": "/3_in_row/static/js/runtime-main.e4d57813.js",
+    "runtime-main.js.map": "/3_in_row/static/js/runtime-main.e4d57813.js.map",
+    "static/js/2.fa3adf8a.chunk.js": "/3_in_row/static/js/2.fa3adf8a.chunk.js",
+    "static/js/2.fa3adf8a.chunk.js.map": "/3_in_row/static/js/2.fa3adf8a.chunk.js.map",
+    "index.html": "/3_in_row/index.html",
+    "static/css/main.46a56901.chunk.css.map": "/3_in_row/static/css/main.46a56901.chunk.css.map",
+    "static/js/2.fa3adf8a.chunk.js.LICENSE.txt": "/3_in_row/static/js/2.fa3adf8a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.651342a5.js",
+    "static/js/runtime-main.e4d57813.js",
     "static/js/2.fa3adf8a.chunk.js",
     "static/css/main.46a56901.chunk.css",
     "static/js/main.529b1936.chunk.js"
